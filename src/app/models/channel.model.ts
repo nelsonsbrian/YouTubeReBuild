@@ -19,5 +19,25 @@ export class Channel {
 
     constructor(public name?: string, public img?: string, public description?: string) {};
 
-    
+    isDuplicateVideo(videoId: number) {
+        for (let i = 0; i < this.videos.length; i ++) {
+            if (this.videos[i].id === videoId) {
+                return true;
+            }
+        }
+        return false;
+    }    
+
+    getVideo(videoId: number) {
+        
+    }
+
+    watchVideo(videoid: number) {
+        this.videos.push()
+    }
 }
+
+
+
+
+
