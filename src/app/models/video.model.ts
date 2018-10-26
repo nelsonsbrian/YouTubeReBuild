@@ -10,7 +10,9 @@ export class Video {
     public publishedDate: Date = new Date();
     public watched: Date[] = [];
 
-    constructor(public title?: string, public img?: string, public publisher?: Channel, public description?: string, public category?: Category[], public duration?: number) {};
+    constructor(public title?: string, public img?: string, public publisher?: Channel, public description?: string, public category?: Category[], public duration?: number) {
+        this.views = Math.ceil(Math.random() * 100000) + 102;
+    };
 
     
 }

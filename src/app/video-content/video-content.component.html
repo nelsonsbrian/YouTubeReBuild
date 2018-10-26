@@ -7,7 +7,7 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{video.duration}}</li>
-    <li class="list-group-item">{{video.publisher}}</li>
-    <li class="list-group-item">{{video.views}} * {{video.publishedDate | date: 'MM/d/yy'}}</li>
+    <li class="list-group-item">{{video.publisher.name}}</li>
+    <li class="list-group-item">{{video.views}} views * {{video.publishedDate | date: 'MM/d/yy'}}</li>
   </ul>
 </div>
