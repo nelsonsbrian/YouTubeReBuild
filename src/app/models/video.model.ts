@@ -16,5 +16,20 @@ export class Video {
         this.id = new Date().getTime() + Math.ceil(Math.random() * 1000000);
     };
 
-    
+    watchedVideo() {
+        this.watched.push(new Date());
+        this.views++;
+    }
+
+    addComment(comment: string) {
+        this.comments.push(comment);
+    }
+
+    addLike(){
+        this.likes++;
+    }
+
+    addDislike() {
+        this.dislikes++;
+    }
 }
