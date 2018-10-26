@@ -1,6 +1,11 @@
 # YouTubeRebuild
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+#### By **Brian Nelson**
+
+## Description
+
+Youtube rebuild utilizing Node.JS and Angular. Site will mimic Youtube's functionality.
+
 
 ## Development server
 
@@ -25,3 +30,24 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Known Bugs
+* No known bugs at this time.
+
+## Technologies Used
+* Javascript / Typscript
+* HTML/CSS
+* Jasmine/Karma Testing
+* Node.JS
+* Wepack
+* Angular
+
+## Support and contact details
+
+_Brian Nelson nelsonsbrian@gmail.com_
+
+### License
+
+*{This software is licensed under the MIT license}*
+
+Copyright (c) 2018 **Brian Nelson**
