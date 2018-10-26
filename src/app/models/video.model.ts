@@ -18,6 +18,7 @@ export class Video {
 
     watchedVideo() {
         this.watched.push(new Date());
+        console.log("inc");
         this.views++;
     }
 

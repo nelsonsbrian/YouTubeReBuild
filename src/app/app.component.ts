@@ -9,6 +9,7 @@ import { Video } from './models/video.model';
   styleUrls: ['./app.component.css']
 })
 
+
 export class AppComponent {
   masterCategoryList: Category[] = [
     new Category("News"),
@@ -39,4 +40,8 @@ export class AppComponent {
   newChannel: Channel = null;
   channelToSell: Channel = null;
 
+  loadVideo(video: Video) {
+    this.masterChannelList[0].logOn();
+    Channel.master.watchVideo(video);
+  }
 }

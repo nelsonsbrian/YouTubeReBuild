@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Video } from '../models/video.model';
 
 @Component({
@@ -9,5 +9,10 @@ import { Video } from '../models/video.model';
 export class CategoryContentComponent {
 
   @Input() ChildVideosInCategory: Video[];
+  @Output() loadVideoSender = new EventEmitter();
+
+  loadVideo(video: Video) {
+    this.loadVideoSender.emit(video);
+  }
 
 }

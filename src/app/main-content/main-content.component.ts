@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Video } from '../models/video.model';
 @Component({
   selector: 'app-main-content',
@@ -7,5 +7,10 @@ import { Video } from '../models/video.model';
 })
 export class MainContentComponent {
 
-@Input() VideosInCategory: Video[];
+  @Input() VideosInCategory: Video[];
+  @Output() loadVideoSender = new EventEmitter();
+
+  loadVideo(video: Video) {
+    this.loadVideoSender.emit(video);
+  }
 }
