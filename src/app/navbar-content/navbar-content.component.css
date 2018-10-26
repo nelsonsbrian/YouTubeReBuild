@@ -2,3 +2,7 @@
     width: 80px;
     height: 24px;
 }
+
+#navbarTogglerDemo03 > form > input {
+    width: 575px;
+}
