@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Video } from '../models/video.model';
 
 @Component({
   selector: 'app-category-content',
   templateUrl: './category-content.component.html',
   styleUrls: ['./category-content.component.css']
 })
-export class CategoryContentComponent implements OnInit {
+export class CategoryContentComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() ChildVideosInCategory: Video[];
 
 }
