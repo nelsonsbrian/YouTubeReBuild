@@ -53,10 +53,10 @@ export class CategoryContentComponent implements OnInit {
           this.localVideos.push(newVideo);
         }
       });
-      this.removeUnusedCategories()
     }
     console.log(this.localCategories);
     console.log(this.localVideos);
+    //this.removeUnusedCategories()
   }
 
   getCategoryDesc(catId: string) {

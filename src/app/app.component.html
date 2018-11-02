@@ -5,6 +5,8 @@
         <app-sidebar-content></app-sidebar-content>
     </div>
     <div class='col col-9 offset-1'>
+
+        <!-- insert router -->
         <app-main-content [VideosInCategory]="masterVideoList" (loadVideoSender)="loadVideo($event)"></app-main-content>
     </div>
 </div> 
