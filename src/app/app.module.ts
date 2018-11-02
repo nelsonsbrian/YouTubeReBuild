@@ -8,9 +8,10 @@ import { VideoContentComponent } from './video-content/video-content.component';
 import { CategoryContentComponent } from './category-content/category-content.component';
 import { SidebarContentComponent } from './sidebar-content/sidebar-content.component';
 import { NavbarContentComponent } from './navbar-content/navbar-content.component';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http'; 
 import { MainContentVideoComponent } from './main-content-video/main-content-video.component';
-
+import { YoutubeApiService } from './youtube-api.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,12 @@ import { MainContentVideoComponent } from './main-content-video/main-content-vid
     BrowserModule,
     HttpModule,
     FormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    YoutubeApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { YoutubeApiService } from '../youtube-api.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Video } from '../models/video.model';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-main-content-video',

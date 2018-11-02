@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { youTubeApi } from './api-keys';
 import { Video } from './models/video.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class YoutubeApiService {
