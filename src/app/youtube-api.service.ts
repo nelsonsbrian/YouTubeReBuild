@@ -10,7 +10,7 @@ export class YoutubeApiService {
 
   constructor(private http: Http) { }
 
-  videoPage: Video = null;
+  static videoPage: Video = null;
 
   getAllCategories() {
     return this.http.get(`https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=US&key=${youTubeApi}`);
@@ -21,10 +21,11 @@ export class YoutubeApiService {
   }
 
   setVideo(video: Video) {
-    this.videoPage = video;
+    YoutubeApiService.videoPage = video;
   }
-
+  
   getVideo() {
-    return this.videoPage;
+    console.log(YoutubeApiService.videoPage);
+    return YoutubeApiService.videoPage;
   }
 }

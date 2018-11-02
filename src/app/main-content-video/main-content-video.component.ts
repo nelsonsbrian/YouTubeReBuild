@@ -19,11 +19,13 @@ export class MainContentVideoComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.videoId = (urlParameters['id']);
-      this.video = this.getVideoObject();
     });
+    this.video = this.getVideoObject();
   }
-
+  
   getVideoObject() {
-    this.youtubeApiService.getVideo()
+    let returnVideo = YoutubeApiService.videoPage;
+    console.log(returnVideo);
+    return returnVideo;
   }
 }
