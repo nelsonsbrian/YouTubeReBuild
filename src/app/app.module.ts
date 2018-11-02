@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-
+import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { VideoContentComponent } from './video-content/video-content.component';
@@ -24,7 +23,8 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
