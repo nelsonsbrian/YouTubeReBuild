@@ -1,8 +1,7 @@
 <div class="card" style="width: 18rem">
   <div>
-    <button (click)="loadVideo(video)"> 
-      <img class="card-img-top" src="{{video.thumbnail.url }}" alt="video picture">
-    </button>
+      <img (click)="goToVideoPage(video)" class="card-img-top" src="{{video.thumbnail.url }}" alt="video picture">
+
   </div>
   <div class="card-body">
     <h5 class="card-title">{{video.title}}</h5>
