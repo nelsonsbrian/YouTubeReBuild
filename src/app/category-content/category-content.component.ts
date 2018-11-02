@@ -23,9 +23,9 @@ export class CategoryContentComponent implements OnInit {
     // this.localCategories.forEach(category => this.getVideosByCategory(category.id));
     // this.getVideosByCategory("1");
   }
-  
+
   constructor(private youtubeApiService: YoutubeApiService) { }
-  
+
   getCategories() {
     this.youtubeApiService.getAllCategories().subscribe(response => {
       for (let i = 0; i < response.json().items.length; i++) {
@@ -40,37 +40,53 @@ export class CategoryContentComponent implements OnInit {
   }
 
   getVideosByCategory() {
-    console.log(this.localCategories.length)
-    let videos: Video[] = [];
     for (let j = 0; j < this.localCategories.length; j++) {
-    this.youtubeApiService.getVideosByCategory(this.localCategories[j].id).subscribe(response => {
-      for (let i = 0; i < response.json().items.length; i++) {
-        let id = response.json().items[i].id;
-        let title = response.json().items[i].snippet.title;
-        let desc = response.json().items[i].snippet.description;
-        let thumbnail = response.json().items[i].snippet.thumbnails.default;
-        let chanId = response.json().items[i].snippet.channelId;
-        let channelTitle = response.json().items[i].snippet.channelTitle;
-        let newVideo = new Video (id, title, thumbnail, chanId, channelTitle, desc, this.localCategories[j].id);
-        videos.push(newVideo);
-      }
-    });
-    this.localVideos = videos; 
-
+      this.youtubeApiService.getVideosByCategory(this.localCategories[j].id).subscribe(response => {
+        for (let i = 0; i < response.json().items.length; i++) {
+          let id = response.json().items[i].id;
+          let title = response.json().items[i].snippet.title;
+          let desc = response.json().items[i].snippet.description;
+          let thumbnail = response.json().items[i].snippet.thumbnails.default;
+          let chanId = response.json().items[i].snippet.channelId;
+          let channelTitle = response.json().items[i].snippet.channelTitle;
+          let newVideo = new Video(id, title, thumbnail, chanId, channelTitle, desc, this.localCategories[j].id);
+          this.localVideos.push(newVideo);
+        }
+      });
+      this.removeUnusedCategories()
+    }
+    console.log(this.localCategories);
+    console.log(this.localVideos);
   }
 
-  getCategoryDesc() {
+  getCategoryDesc(catId: string) {
     let categoryDesc;
-    console.log(this.localCategories.length);
-    for (let i = 0; i < this.localCategories.length; i ++) {
+    for (let i = 0; i < this.localCategories.length; i++) {
       console.log(this.localCategories[i].id);
       if (this.localCategories[i].id === catId) {
         categoryDesc = this.localCategories[i].title;
       }
     }
-    
+
     // this.localCategories.filter( category => category.id === catId);
     return categoryDesc;
+  }
+
+  removeUnusedCategories() {
+    console.log(this.localCategories.length);
+    for(let i = this.localCategories.length-1; i > 0; i--) {
+      console.log(this.localCategories[i].title);
+      let counter = 0;
+      for(let j = 0; j < this.localVideos.length; j++) {
+        if (this.localVideos[j].category === this.localCategories[i].id) {
+          counter++;
+        }
+      }
+      if (counter == 0) {
+        console.log("removed category " + this.localCategories[i].title);
+        this.localCategories.splice(i, 1);
+      }
+    }
   }
 
   loadVideo(video: Video) {
