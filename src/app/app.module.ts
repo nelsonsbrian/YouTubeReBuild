@@ -9,6 +9,7 @@ import { VideoContentComponent } from './video-content/video-content.component';
 import { CategoryContentComponent } from './category-content/category-content.component';
 import { SidebarContentComponent } from './sidebar-content/sidebar-content.component';
 import { NavbarContentComponent } from './navbar-content/navbar-content.component';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NavbarContentComponent } from './navbar-content/navbar-content.componen
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule
   ],
   providers: [],
