@@ -16,48 +16,61 @@ export class CategoryContentComponent implements OnInit {
   @Output() loadVideoSender = new EventEmitter();
 
   localCategories: Category[] = [];
-  
+  localVideos: Video[] = [];
   ngOnInit() {
-    this.localCategories = this.getCategories();
+    this.getCategories();
+
     // this.localCategories.forEach(category => this.getVideosByCategory(category.id));
-    this.getVideosByCategory("1");
-    }
+    // this.getVideosByCategory("1");
+  }
   
   constructor(private youtubeApiService: YoutubeApiService) { }
   
   getCategories() {
-    let cate: Category[] = [];
     this.youtubeApiService.getAllCategories().subscribe(response => {
       for (let i = 0; i < response.json().items.length; i++) {
         let id = response.json().items[i].id;
         let title = response.json().items[i].snippet.title
         let chanId = response.json().items[i].snippet.channelId;
         let newCategory = new Category(title, id, chanId);
-        cate.push(newCategory);
+        this.localCategories.push(newCategory);
       }
+      this.getVideosByCategory();
     });
-    console.log(cate);
-    return cate;
   }
 
-  getVideosByCategory(catId: string) {
+  getVideosByCategory() {
+    console.log(this.localCategories.length)
     let videos: Video[] = [];
-    this.youtubeApiService.getVideosByCategory(catId).subscribe(response => {
+    for (let j = 0; j < this.localCategories.length; j++) {
+    this.youtubeApiService.getVideosByCategory(this.localCategories[j].id).subscribe(response => {
       for (let i = 0; i < response.json().items.length; i++) {
-        let data = response.json();
         let id = response.json().items[i].id;
         let title = response.json().items[i].snippet.title;
         let desc = response.json().items[i].snippet.description;
         let thumbnail = response.json().items[i].snippet.thumbnails.default;
         let chanId = response.json().items[i].snippet.channelId;
         let channelTitle = response.json().items[i].snippet.channelTitle;
-        let newVideo = new Video (id, title, thumbnail, chanId, channelTitle, desc, catId);
+        let newVideo = new Video (id, title, thumbnail, chanId, channelTitle, desc, this.localCategories[j].id);
         videos.push(newVideo);
       }
     });
-    console.log(videos);
-    return videos; 
+    this.localVideos = videos; 
 
+  }
+
+  getCategoryDesc() {
+    let categoryDesc;
+    console.log(this.localCategories.length);
+    for (let i = 0; i < this.localCategories.length; i ++) {
+      console.log(this.localCategories[i].id);
+      if (this.localCategories[i].id === catId) {
+        categoryDesc = this.localCategories[i].title;
+      }
+    }
+    
+    // this.localCategories.filter( category => category.id === catId);
+    return categoryDesc;
   }
 
   loadVideo(video: Video) {

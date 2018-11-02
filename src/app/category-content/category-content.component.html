@@ -4,7 +4,7 @@
   <div *ngFor="let category of localCategories">
     {{category.title}}<br>
   </div>
-  <div *ngFor="let video of ChildVideosInCategory">
+  <div *ngFor="let video of localVideos">
     <app-video-content [video]="video" (loadVideoSender)="loadVideo($event)"></app-video-content>
   </div>
 </div>

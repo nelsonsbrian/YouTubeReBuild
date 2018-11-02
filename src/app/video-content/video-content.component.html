@@ -1,7 +1,7 @@
 <div class="card" style="width: 18rem">
   <div>
     <button (click)="loadVideo(video)"> 
-      <img class="card-img-top" src="{{video.img}}" alt="video picture">
+      <img class="card-img-top" src="{{video.thumbnail.url }}" alt="video picture">
     </button>
   </div>
   <div class="card-body">
@@ -9,7 +9,8 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{video.duration}}</li>
-    <li class="list-group-item">{{video.publisher.name}}</li>
+    <li class="list-group-item">{{video.publisherChannel}}</li>
     <li class="list-group-item">{{video.views}} views * {{video.publishedDate | date: 'MM/d/yy'}}</li>
+    <li class="list-group-item">{{video.category}}</li>
   </ul>
 </div>
