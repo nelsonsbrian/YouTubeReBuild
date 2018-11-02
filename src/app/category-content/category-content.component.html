@@ -1,7 +1,10 @@
 <h2>Recommended</h2>
+<!-- <button (click)="getCategories()">Get Category</button> -->
 <div class="row">
+  <div *ngFor="let category of localCategories">
+    {{category.title}}<br>
+  </div>
   <div *ngFor="let video of ChildVideosInCategory">
     <app-video-content [video]="video" (loadVideoSender)="loadVideo($event)"></app-video-content>
   </div>
-  <button (click)="getCategories(1)">Get Category</button>
 </div>
