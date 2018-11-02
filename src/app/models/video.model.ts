@@ -9,11 +9,19 @@ export class Video {
     public comments: string[] = [];
     public publishedDate: Date = new Date();
     public watched: Date[] = [];
-    public id: number;
+    public duration: number;
 
-    constructor(public title?: string, public img?: string, public publisher?: Channel, public description?: string, public category?: Category[], public duration?: number) {
+    constructor(
+        public id?: string,
+        public title?: string,
+        public thumbnail?: object,
+        public publisherId?: string,
+        public publisherChannel?: string,
+        public description?: string,
+        public category?: string
+    ) {
         this.views = Math.ceil(Math.random() * 100000) + 102;
-        this.id = new Date().getTime() + Math.ceil(Math.random() * 1000000);
+        this.duration = 60;
     };
 
     watchedVideo() {
@@ -26,7 +34,7 @@ export class Video {
         this.comments.push(comment);
     }
 
-    addLike(){
+    addLike() {
         this.likes++;
     }
 

@@ -21,41 +21,41 @@ export class Channel {
 
     constructor(public name?: string, public img?: string, public description?: string) {};
 
-    isDuplicateUpload(videoId: number) {
-        for (let i = 0; i < this.videos.length; i ++) {
-            if (this.videos[i].id === videoId) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // isDuplicateUpload(videoId: number) {
+    //     for (let i = 0; i < this.videos.length; i ++) {
+    //         if (this.videos[i].id === videoId) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
-    isDuplicateOnPlaylist(videoId: number, playList: Playlist) {
-        for (let i = 0; i < playList.list.length; i ++) {
-            if (playList.list[i].id === videoId) {
-                return true;
-            }
-        }
-        return false;
-    }    
+    // isDuplicateOnPlaylist(videoId: number, playList: Playlist) {
+    //     for (let i = 0; i < playList.list.length; i ++) {
+    //         if (playList.list[i].id === videoId) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }    
 
-    addToPlayList(video: Video, playList: Playlist) {
-        if (this.isDuplicateOnPlaylist(video.id, playList)) {
-            playList.list.push(video);
-        }
-    }
+    // addToPlayList(video: Video, playList: Playlist) {
+    //     if (this.isDuplicateOnPlaylist(video.id, playList)) {
+    //         playList.list.push(video);
+    //     }
+    // }
 
-    removeFromPlayList(video: Video, playList: Playlist) {
-        if (!(this.isDuplicateOnPlaylist(video.id, playList))) {
-            let index = null;
-            for (let i = 0; i < playList.list.length; i++) {
-                if (playList.list[i].id = video.id) {
-                    index = i;
-                }
-            }
-            playList.list.splice(index,1);
-        }
-    }    
+    // removeFromPlayList(video: Video, playList: Playlist) {
+    //     if (!(this.isDuplicateOnPlaylist(video.id, playList))) {
+    //         let index = null;
+    //         for (let i = 0; i < playList.list.length; i++) {
+    //             if (playList.list[i].id = video.id) {
+    //                 index = i;
+    //             }
+    //         }
+    //         playList.list.splice(index,1);
+    //     }
+    // }    
 
 
     watchVideo(video: Video) {
