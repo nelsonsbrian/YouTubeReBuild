@@ -5,6 +5,7 @@
 ## Description
 
 Youtube rebuild utilizing Node.JS and Angular. Site will mimic Youtube's functionality.
+See: https://rebuild-221216.firebaseapp.com for a deployed version.
 
 
 ## Development server
